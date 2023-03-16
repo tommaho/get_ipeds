@@ -10,7 +10,7 @@ dict_path="../dictionaries"
 years=("2021" "2020")
 
 #Downloads both the default data file and dictionary for each entry
-#the YYYY character sequence is a placeholder for year loop
+#the YYYY character sequence is a placeholder for replacement in year loop
 
 files=("HDYYYY" "CYYYY_A")
 
@@ -19,7 +19,6 @@ for ((y=0; y<${#years[@]}; y++)); do
     for ((i=0; i<${#files[@]}; i++)); do
 
         file=$(echo ${files[$i]/"YYYY"/${years[$y]}}) 
-        #echo ${file}
         
         wget -O ${download_path}/${file}.zip ${path}${file}.zip #data
         wget -O ${download_path}/${file}_Dict.zip ${path}${file}_Dict.zip #dict
@@ -31,4 +30,4 @@ for ((y=0; y<${#years[@]}; y++)); do
 
 done
 
-echo "Finished downloads.."
+echo "Finished!"
